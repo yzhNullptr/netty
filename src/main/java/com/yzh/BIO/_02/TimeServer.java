@@ -23,7 +23,7 @@ public class TimeServer {
 
         try{
             serverSocket=new ServerSocket(port);
-            System.out.println("The TimeServer is start in port : "+port);
+            System.out.println("The EchoServer is start in port : "+port);
             Socket socket=null;
             TimeServerHandlerExecutePool singleExecutor =new TimeServerHandlerExecutePool(50,10000);//创建I/O 任务线程池
             while(true){
@@ -32,7 +32,7 @@ public class TimeServer {
             }
         }finally {
             if (serverSocket!=null){
-                System.out.println("The TimeServer close");
+                System.out.println("The EchoServer close");
                 serverSocket.close();
                 serverSocket=null;
             }

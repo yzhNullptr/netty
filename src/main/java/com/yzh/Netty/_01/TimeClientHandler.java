@@ -6,7 +6,6 @@ import io.netty.channel.ChannelHandlerAdapter;
 import io.netty.channel.ChannelHandlerContext;
 
 import java.nio.charset.StandardCharsets;
-import java.util.PrimitiveIterator;
 import java.util.logging.Logger;
 
 /**
@@ -17,31 +16,33 @@ import java.util.logging.Logger;
 public class TimeClientHandler extends ChannelHandlerAdapter {
     public static final Logger logger=Logger
             .getLogger(TimeClientHandler.class.getName());
-    private final ByteBuf firstMessage;
+    private final byte[] bytes;
+    private  int count=0;
 
     public TimeClientHandler() {
-        byte[] bytes = "QUERY TIME ORDER".getBytes(StandardCharsets.UTF_8);
-        firstMessage= Unpooled.buffer(bytes.length);
-        firstMessage.writeBytes(bytes);
+         bytes =( "QUERY TIME ORDER"+System.getProperty("line.separator")).getBytes(StandardCharsets.UTF_8);
     }
-
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
-      logger.warning("Unexpected exception from downstream : "+cause.getMessage());
+      logger.warning("Unexpected exception from downstream : "+cause.getMessage()+"and the order is : "+count);
       ctx.close();
     }
-
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-        ByteBuf buf= (ByteBuf) msg;
-        byte[] bytes=new byte[buf.readableBytes()];
-        buf.readBytes(bytes);
-        String body = new String(bytes, StandardCharsets.UTF_8);
-        System.out.println("Now is : "+body);
+//        ByteBuf buf= (ByteBuf) msg;
+//        byte[] bytes=new byte[buf.readableBytes()];
+//        buf.readBytes(bytes);
+//        String body = new String(bytes, StandardCharsets.UTF_8);
+        String body= (String) msg;
+        System.out.println("Now is : "+body+"; the count is : "+ ++count);
     }
-
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
-        ctx.writeAndFlush(firstMessage);
+        ByteBuf message=null;
+        for(int i=0;i<100;i++){
+            message=Unpooled.buffer(bytes.length);
+            message.writeBytes(bytes);
+            ctx.writeAndFlush(message);
+        }
     }
 }

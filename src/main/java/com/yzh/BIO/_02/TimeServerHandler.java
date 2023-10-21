@@ -1,6 +1,5 @@
 package com.yzh.BIO._02;
 
-import org.w3c.dom.ls.LSOutput;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -8,8 +7,6 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
 
 /**
  * @author: yzh
@@ -34,7 +31,7 @@ public class TimeServerHandler implements Runnable{
             while(true){
                 body=in.readLine();
                 if (body==null)break;
-                System.out.println("The TimeServer receive order : "+body);
+                System.out.println("The EchoServer receive order : "+body);
                 currentTime="QUERY TIME ORDER".equalsIgnoreCase(body) ? LocalDateTime.now().toString():"BAD ORDER";
                 out.println(currentTime);
             }

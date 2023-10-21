@@ -11,7 +11,7 @@ import java.io.IOException;
 /**
  * @author: yzh
  * @date: 2023-10-19 22:28:15
- * @Description: TODO 描述该类的功能
+ * @Description:  使用LineBaseFrameDecoder解码器解决了读半包问题
  */
 public class TimeServer {
     public void bind(int port)throws IOException{

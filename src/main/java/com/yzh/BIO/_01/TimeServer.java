@@ -1,6 +1,5 @@
 package com.yzh.BIO._01;
 
-import com.yzh.BIO._02.TimeServerHandlerExecutePool;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -18,14 +17,14 @@ public class TimeServer {
             try{
                 port=Integer.parseInt(args[0]);
             }catch (NumberFormatException e){
-                e.printStackTrace();;
+                e.printStackTrace();
             }
         }
         ServerSocket serverSocket=null;
 
         try{
             serverSocket=new ServerSocket(port);
-            System.out.println("The TimeServer is start in port : "+port);
+            System.out.println("The EchoServer is start in port : "+port);
             Socket socket=null;
             while(true){
                 socket=serverSocket.accept();
@@ -33,7 +32,7 @@ public class TimeServer {
             }
         }finally {
             if (serverSocket!=null){
-                System.out.println("The TimeServer close");
+                System.out.println("The EchoServer close");
                 serverSocket.close();
                 serverSocket=null;
             }

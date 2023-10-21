@@ -1,6 +1,5 @@
 package com.yzh.NIO._01;
 
-import com.yzh._01.Server;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -9,7 +8,6 @@ import java.nio.channels.*;
 import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 import java.util.Iterator;
-import java.util.Optional;
 import java.util.Set;
 
 /**
@@ -95,7 +93,7 @@ public class MultiplexerTimeServer implements Runnable{
                     byte[] bytes=new byte[buffer.remaining()];
                     buffer.get(bytes);
                     String body=new String(bytes, StandardCharsets.UTF_8);
-                    System.out.println("The TimeServer receive order : "+body);
+                    System.out.println("The EchoServer receive order : "+body);
                     String currentTime="QUERY TIME ORDER".equalsIgnoreCase(body)? LocalDateTime.now().toString():"BAD ORDER";
                     doWrite(sc,currentTime);
                 }else if (readBytes<0){

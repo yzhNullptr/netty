@@ -3,6 +3,8 @@ package com.yzh.Netty._01;
 
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.socket.SocketChannel;
+import io.netty.handler.codec.LineBasedFrameDecoder;
+import io.netty.handler.codec.string.StringDecoder;
 
 /**
  * @author: yzh
@@ -12,6 +14,9 @@ import io.netty.channel.socket.SocketChannel;
 public class ChildChannelHandler extends ChannelInitializer<SocketChannel> {
     @Override
     protected void initChannel(SocketChannel channel) throws Exception {
-        channel.pipeline().addLast(new TimeServerHandler());
+        channel.pipeline()
+                .addLast(new LineBasedFrameDecoder(1024))
+                .addLast(new StringDecoder())
+                .addLast(new TimeServerHandler());
     }
 }
