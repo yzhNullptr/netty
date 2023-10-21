@@ -1,4 +1,4 @@
-package com.yzh.Netty._03;
+package com.yzh.Netty.Decoder._03;
 
 import io.netty.channel.ChannelHandlerAdapter;
 import io.netty.channel.ChannelHandlerContext;

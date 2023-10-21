@@ -1,4 +1,4 @@
-package com.yzh.Netty._02;
+package com.yzh.Netty.Decoder._02;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.buffer.ByteBuf;

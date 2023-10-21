@@ -1,4 +1,4 @@
-package com.yzh.Netty._01;
+package com.yzh.Netty.Decoder._01;
 
 
 import io.netty.channel.ChannelInitializer;
