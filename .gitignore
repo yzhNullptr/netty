@@ -11,4 +11,5 @@ target/
 *.iws
 *.iml
 *.ipr
+/test/**
 
