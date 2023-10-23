@@ -46,7 +46,7 @@ public class Server {
         SocketChannel channel = serverSocketChannel.accept();
         channel.configureBlocking(false);
         channel.register(selector,SelectionKey.OP_READ);
-        channel.write(StandardCharsets.UTF_8.encode("hello world"));
+        channel.write(StandardCharsets.UTF_8.encode("_01 world"));
     }
 
     void readHandler(SelectionKey key ,Selector selector) throws  Exception {

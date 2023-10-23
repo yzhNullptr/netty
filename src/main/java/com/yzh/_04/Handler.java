@@ -35,7 +35,7 @@ public class Handler implements Runnable{
             int read = inputStream.read(bytes2);
              os.write("HTTP/1.1 200 OK\nServer: myServer\n Content-Type: text/html\n\n".getBytes(StandardCharsets.UTF_8));
             os.write(bytes2,0,read);
-            // os.write("HTTP/1.1 200 OK\nServer: myServer\n Content-Type: text/html\n\n<html><head><body>hello</body></head></html>".getBytes(StandardCharsets.UTF_8));
+            // os.write("HTTP/1.1 200 OK\nServer: myServer\n Content-Type: text/html\n\n<html><head><body>_01</body></head></html>".getBytes(StandardCharsets.UTF_8));
         }catch (IOException e){
             e.printStackTrace();
         }

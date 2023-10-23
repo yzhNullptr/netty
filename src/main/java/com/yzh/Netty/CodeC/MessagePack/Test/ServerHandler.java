@@ -1,6 +1,6 @@
-package com.yzh.Netty.CodeC.Test;
+package com.yzh.Netty.CodeC.MessagePack.Test;
 
-import com.yzh.Netty.CodeC.Pojo.User;
+import com.yzh.Netty.CodeC.MessagePack.Pojo.User;
 import io.netty.channel.ChannelHandlerAdapter;
 import io.netty.channel.ChannelHandlerContext;
 

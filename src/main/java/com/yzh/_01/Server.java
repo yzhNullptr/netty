@@ -48,7 +48,7 @@ class Handler extends Thread{
     protected void handler(InputStream is, OutputStream os)throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(os,StandardCharsets.UTF_8));
-        bw.write("hello\n");
+        bw.write("_01\n");
         bw.flush();
         while(true){
             String s = br.readLine();

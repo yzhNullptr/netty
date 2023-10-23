@@ -1,4 +1,4 @@
-package com.yzh.Netty.CodeC.Decoder;
+package com.yzh.Netty.CodeC.MessagePack.Decoder;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;

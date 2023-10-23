@@ -33,7 +33,7 @@ public class AsyncTimeClientHandler implements CompletionHandler<Void,AsyncTimeC
 
     @Override
     public void completed(Void result, AsyncTimeClientHandler attachment) {
-        System.out.println("hello");
+        System.out.println("_01");
         ByteBuffer flip = StandardCharsets.UTF_8.encode("QUERY TIME ORDER");
         flip.flip();
         channel.write(flip, flip, new CompletionHandler<Integer, ByteBuffer>() {

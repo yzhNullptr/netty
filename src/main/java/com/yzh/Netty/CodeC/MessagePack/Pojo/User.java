@@ -1,8 +1,7 @@
-package com.yzh.Netty.CodeC.Pojo;
+package com.yzh.Netty.CodeC.MessagePack.Pojo;
 
 import org.msgpack.annotation.Message;
 
-import java.io.Serializable;
 import java.util.Objects;
 
 /**
