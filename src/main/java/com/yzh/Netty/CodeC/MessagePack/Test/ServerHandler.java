@@ -15,7 +15,6 @@ public class ServerHandler extends ChannelHandlerAdapter {
         System.out.println("连接成功");
         ctx.writeAndFlush(new User("123","123"));
     }
-
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
         cause.printStackTrace();
